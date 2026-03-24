@@ -1,6 +1,6 @@
 import { GraduationCap } from 'lucide-react'
 
-function brand() {
+function Brand() {
   return (
     <div className="flex items-center gap-2">
       <div className="flex size-9 items-center justify-center bg-primary rounded-lg">
@@ -13,4 +13,4 @@ function brand() {
   )
 }
 
-export default brand
+export default Brand
