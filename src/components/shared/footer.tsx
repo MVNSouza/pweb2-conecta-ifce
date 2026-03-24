@@ -10,8 +10,8 @@ function Footer() {
               <a href="/">
                 <Brand />
               </a>
-              <p className="mt-3 text-sm text-muted-foreground text-balance pr-2 leading-relaxed">
-                s Rede social acadêmica do IFCE. Conectando a comunidade para
+              <p className="mt-3 text-sm text-muted-foreground text-balance p-2 leading-relaxed">
+                Rede social acadêmica do IFCE. Conectando a comunidade para
                 crescer juntos.
               </p>
             </div>
