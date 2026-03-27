@@ -17,11 +17,33 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { registerSchema } from '@/schemas/register.schema'
 import { EyeIcon, EyeOffIcon } from 'lucide-react'
 import { useState } from 'react'
+import { ZodError } from 'zod'
 
 function RegisterPage() {
   const [showPass, setShowPass] = useState<boolean>(false)
+
+  const handleSubmit = (event: React.SubmitEvent) => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+
+    const data = {
+      firstName: formData.get('firstName'),
+      password: formData.get('password'),
+    }
+
+    try {
+      const validateData = registerSchema.parse(data)
+      console.log(validateData)
+    } catch (error) {
+      if (error instanceof ZodError) {
+        console.log(error)
+      }
+    }
+  }
+
   return (
     <section className="flex-1 flex items-center justify-center py-20">
       <Card className="max-w-md border-border w-md lg:w-lg sm:w-xs">
@@ -39,14 +61,14 @@ function RegisterPage() {
         </CardHeader>
 
         <CardContent>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="flex justify-between gap-3">
               {/* ------ START OF NOME ------ */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="nome">Nome</Label>
+                <Label htmlFor="firstName">Nome</Label>
                 <Input
-                  id="nome"
-                  name="nome"
+                  id="firstName"
+                  name="firstName"
                   type="text"
                   placeholder="Seu nome"
                   required
@@ -57,13 +79,12 @@ function RegisterPage() {
 
               {/* ------ START OF SOBRENOME ------ */}
               <div className="flex flex-col gap-2">
-                <Label htmlFor="sobrenome">Sobrenome</Label>
+                <Label htmlFor="lastName">Sobrenome</Label>
                 <Input
-                  id="sobrenome"
-                  name="sobrenome"
+                  id="lastName"
+                  name="lastName"
                   type="text"
                   placeholder="Seu sobrenome"
-                  required
                   className="h-11 bg-background"
                 />
               </div>
@@ -75,7 +96,7 @@ function RegisterPage() {
               <Label htmlFor="role" className="text-foreground">
                 Vínculo
               </Label>
-              <Select required>
+              <Select>
                 <SelectTrigger className="bg-background w-full h-11" id="role">
                   <SelectValue placeholder="Selecione seu vínculo com o IFCE" />
                 </SelectTrigger>
@@ -93,7 +114,7 @@ function RegisterPage() {
               <Label htmlFor="campus" className="text-foreground">
                 Campus
               </Label>
-              <Select required>
+              <Select>
                 <SelectTrigger
                   className="bg-background w-full h-11"
                   id="campus"
@@ -116,7 +137,6 @@ function RegisterPage() {
                 name="email"
                 type="email"
                 placeholder="seu.nome@ifce.edu.br"
-                required
                 className="h-11 bg-background"
               />
             </div>
