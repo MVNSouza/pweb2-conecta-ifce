@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@/shared/components/ui/card'
 import { BookOpen, FolderSearch, Trophy, Users } from 'lucide-react'
 
 const features = [
@@ -27,21 +27,20 @@ const features = [
       'Publique seus artigos, apresente seus projetos de pesquisa e encontre colaboradores para novas ideias.',
   },
 ]
+
 function FeatureSection() {
   return (
     <section className="bg-background py-20" id="feature-section">
       <div className="container-main">
         <div className="mx-auto text-center max-w-2xl">
-          <p className="text-primary uppercase tracking-wide text-sm">
+          <p className="text-primary uppercase tracking-wide font-semibold text-sm">
             Por que participar
           </p>
-
           <h2 className="mt-3 text-4xl font-bold text-balance text-foreground tracking-tight">
             Tudo que você precisa para crescer na vida acadêmica
           </h2>
-
           <p className="mt-4 text-balance text-lg text-muted-foreground">
-            Networking e recursos para impulsionar sua jornada no IFCE
+            Networking e recursos para impulsiosnar sua jornada no IFCE
           </p>
         </div>
 
@@ -49,9 +48,9 @@ function FeatureSection() {
           {features.map((feature) => (
             <Card
               key={feature.title}
-              className="border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all duration-200"
+              className="border-border bg-card hover:border-primary/30 hover:shadow-md transition-all duration-200"
             >
-              <CardContent className="flex flex-col px-6">
+              <CardContent className="felx flex-col px-6">
                 <div className="flex items-center justify-center size-10 bg-primary/10 rounded-lg">
                   <feature.icon className="size-5 text-primary" />
                 </div>
