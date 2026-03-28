@@ -1,6 +1,6 @@
 import { registerSchema, type RegisterFormData } from "@/features/auth/schemas/register.schema"
 import { setAccessToken } from "@/features/auth/storage/auth.storage"
-import { http } from "@/infra/http/http.client"
+import { http } from "@/infra/http/http-client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
