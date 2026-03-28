@@ -1,5 +1,5 @@
 import { http } from '@/infra/http/http-client'
-import { setAccessToken } from '@/features/auth/storage/auth.storage'
+import { setAccessToken } from '@/features/auth/storages/token.storage'
 import type { UserResponseDTO } from '@/features/auth/types/dto/auth-dto'
 
 export async function login(

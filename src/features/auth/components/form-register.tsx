@@ -1,17 +1,25 @@
-import { useFormRegister } from "@/features/auth/components/useFormRegister"
-import { Button } from "@/shared/components/ui/button"
-import { Input } from "@/shared/components/ui/input"
-import { Label } from "@/shared/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/components/ui/select"
-import { EyeIcon, EyeOffIcon, Loader2Icon } from "lucide-react"
-import { Controller } from "react-hook-form"
+import { useFormRegister } from '@/features/auth/components/useFormRegister'
+import { Button } from '@/shared/components/ui/button'
+import { Input } from '@/shared/components/ui/input'
+import { Label } from '@/shared/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/shared/components/ui/select'
+import { EyeIcon, EyeOffIcon, Loader2Icon } from 'lucide-react'
+import { Controller } from 'react-hook-form'
 
 function FormRegister() {
-
   const { state, onSubmit, useForm } = useFormRegister()
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={useForm.handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col gap-4"
+      onSubmit={useForm.handleSubmit(onSubmit)}
+    >
       <div className="flex items-center gap-4">
         <div className="flex flex-col gap-2">
           <Label htmlFor="firstName" className="text-foreground">
@@ -67,7 +75,9 @@ function FormRegister() {
         />
 
         {useForm.errors.handle && (
-          <p className="text-xs text-destructive">{useForm.errors.handle.message}</p>
+          <p className="text-xs text-destructive">
+            {useForm.errors.handle.message}
+          </p>
         )}
       </div>
 
@@ -84,7 +94,9 @@ function FormRegister() {
         />
 
         {useForm.errors.email && (
-          <p className="text-xs text-destructive">{useForm.errors.email.message}</p>
+          <p className="text-xs text-destructive">
+            {useForm.errors.email.message}
+          </p>
         )}
       </div>
 
@@ -102,16 +114,18 @@ function FormRegister() {
               </SelectTrigger>
 
               <SelectContent>
-                <SelectItem value="student">Estudante</SelectItem>
-                <SelectItem value="professor">Docente</SelectItem>
-                <SelectItem value="technician">Técnico(a)</SelectItem>
+                <SelectItem value="STIUDENT">Estudante</SelectItem>
+                <SelectItem value="PROFESSOR">Docente</SelectItem>
+                <SelectItem value="TECHNICIAN">Técnico(a)</SelectItem>
               </SelectContent>
             </Select>
           )}
         />
 
         {useForm.errors.role && (
-          <p className="text-xs text-destructive">{useForm.errors.role.message}</p>
+          <p className="text-xs text-destructive">
+            {useForm.errors.role.message}
+          </p>
         )}
       </div>
 
@@ -141,11 +155,13 @@ function FormRegister() {
         />
 
         {useForm.errors.campus && (
-          <p className="text-xs text-destructive">{useForm.errors.campus.message}</p>
+          <p className="text-xs text-destructive">
+            {useForm.errors.campus.message}
+          </p>
         )}
       </div>
 
-      {useForm.watch('role') === 'student' && (
+      {useForm.watch('role') === 'STUDENT' && (
         <div className="flex flex-col gap-2">
           <Label htmlFor="course" className="text-foreground">
             Curso
@@ -160,7 +176,9 @@ function FormRegister() {
           />
 
           {useForm.errors.course && (
-            <p className="text-xs text-destructive">{useForm.errors.course.message}</p>
+            <p className="text-xs text-destructive">
+              {useForm.errors.course.message}
+            </p>
           )}
         </div>
       )}
@@ -193,7 +211,9 @@ function FormRegister() {
         </div>
 
         {useForm.errors.password && (
-          <p className="text-xs text-destructive">{useForm.errors.password.message}</p>
+          <p className="text-xs text-destructive">
+            {useForm.errors.password.message}
+          </p>
         )}
 
         <p className="text-xs text-foreground">
@@ -217,12 +237,10 @@ function FormRegister() {
       </Button>
 
       {state.registerError && (
-          <p className="text-xs text-destructive">
-            {state.registerError}
-          </p>
-        )}
+        <p className="text-xs text-destructive">{state.registerError}</p>
+      )}
     </form>
   )
 }
 
-export default FormRegister;
+export default FormRegister
