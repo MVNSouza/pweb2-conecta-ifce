@@ -1,4 +1,4 @@
-import type { AuthUser } from '@/features/auth/types/dto/auth-dto'
+import type { AuthUser } from '@/features/auth/types/dto/AuthDTO'
 
 const KEY_AUTH_USER = 'auth_user'
 
