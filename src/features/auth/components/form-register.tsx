@@ -114,7 +114,7 @@ function FormRegister() {
               </SelectTrigger>
 
               <SelectContent>
-                <SelectItem value="STIUDENT">Estudante</SelectItem>
+                <SelectItem value="STUDENT">Estudante</SelectItem>
                 <SelectItem value="PROFESSOR">Docente</SelectItem>
                 <SelectItem value="TECHNICIAN">Técnico(a)</SelectItem>
               </SelectContent>

@@ -1,4 +1,4 @@
-import UserAvatar from '@/shared/components/user-avatar'
+import UserAvatar from '@/features/users/components/user-avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,18 +8,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu'
-import { useUserMenu } from '@/shared/components/userUseMenu'
+import { useUserMenu } from '@/features/users/components/userUseMenu'
 
 function UserMenu() {
-  const { authUser, getInitials, triggerLogout } = useUserMenu()
+  const { authUser, triggerLogout } = useUserMenu()
 
-  const initials = getInitials()
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none focus:outline-none">
         <UserAvatar
-          imageUrl={authUser?.avatarURL}
-          initials={initials}
+          avatarUrl={authUser?.avatarURL}
+          firstName={authUser?.firstName}
+          lastName={authUser?.lastName}
           size="lg"
         />
       </DropdownMenuTrigger>
